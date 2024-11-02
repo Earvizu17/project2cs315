@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4b2xucjtxgcf"]
+[gd_scene load_steps=11 format=3 uid="uid://4b2xucjtxgcf"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_37vva"]
 [ext_resource type="Texture2D" uid="uid://cmyw7fmkbaox3" path="res://monochrome_tilemap_transparent.png" id="1_wi2ep"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bdyp538fqygcq" path="res://hud.tscn" id="3_qapr3"]
 [ext_resource type="PackedScene" uid="uid://dypev0qrj3e6s" path="res://gem.tscn" id="5_lp1yo"]
 [ext_resource type="AudioStream" uid="uid://icmqlmr251kc" path="res://annoyingwaltz.wav" id="7_1ltcm"]
+[ext_resource type="PackedScene" uid="uid://08t0w76xg70k" path="res://enemy.tscn" id="8_jrfo3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6issp"]
 resource_name = "Tilemap"
@@ -589,6 +590,12 @@ position = Vector2(496, 234)
 stream = ExtResource("7_1ltcm")
 volume_db = -5.0
 autoplay = true
+
+[node name="Enemy" parent="." instance=ExtResource("8_jrfo3")]
+position = Vector2(459, 253)
+
+[node name="Enemy2" parent="." instance=ExtResource("8_jrfo3")]
+position = Vector2(403, 254)
 
 [connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
 [connection signal="player_entered" from="Door2" to="." method="_on_door_player_entered"]

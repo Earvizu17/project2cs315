@@ -199,7 +199,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7ve5"]
-size = Vector2(29, 21)
+size = Vector2(18, 18)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_xcp40")
@@ -212,7 +212,7 @@ animation = &"attack"
 frame_progress = 0.258365
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -4.5)
+position = Vector2(-6, -6)
 shape = SubResource("RectangleShape2D_d7ve5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
