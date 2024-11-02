@@ -9,7 +9,6 @@ func _ready():
 	set_gems_label()
 	for gem in $Gems.get_children():
 		gem.gem_collected.connect(_on_gem_collected)
-	spawn_enemy()
 
 func _on_gem_collected():
 	set_gems_label()
@@ -25,13 +24,3 @@ func _input(event):
 		get_tree().reload_current_scene.call_deferred()
 		Global.gems_collected = 0
 		set_gems_label()
-		
-func spawn_enemy():
-	# Random position within the enemy spawn area
-	var enemy_position = enemy_spawn_area.position + Vector2(
-		randf() * enemy_spawn_area.size.x,
-		randf() * enemy_spawn_area.size.y
-	)
-	var enemy = enemy_scene.instantiate()
-	enemy.position = enemy_position
-	add_child(enemy)
