@@ -1,12 +1,15 @@
 extends Node2D
 
 @export var level_num = 0
+@export var enemy_scene: PackedScene = preload("res://enemy.tscn") # Drag your enemy scene here in the Inspector
+@export var enemy_spawn_area: Rect2 = Rect2(Vector2(250, 200), Vector2(500, 300))  # Default spawn area; adjust as needed
 
 func _ready():
 	$HUD.level(level_num)
 	set_gems_label()
 	for gem in $Gems.get_children():
 		gem.gem_collected.connect(_on_gem_collected)
+	spawn_enemy()
 
 func _on_gem_collected():
 	set_gems_label()
@@ -22,3 +25,13 @@ func _input(event):
 		get_tree().reload_current_scene.call_deferred()
 		Global.gems_collected = 0
 		set_gems_label()
+		
+func spawn_enemy():
+	# Random position within the enemy spawn area
+	var enemy_position = enemy_spawn_area.position + Vector2(
+		randf() * enemy_spawn_area.size.x,
+		randf() * enemy_spawn_area.size.y
+	)
+	var enemy = enemy_scene.instantiate()
+	enemy.position = enemy_position
+	add_child(enemy)
