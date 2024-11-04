@@ -16,4 +16,5 @@ func _physics_process(delta: float) -> void:
 # When the player collides, kill the player
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
+		print("Player has collided with the enemy!")  # Debug print
 		body.take_damage()  # This function will handle the player's death

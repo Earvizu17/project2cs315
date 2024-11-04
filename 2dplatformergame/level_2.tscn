@@ -576,7 +576,7 @@ offset_left = -24.0
 offset_top = -34.0
 offset_right = 30.0
 offset_bottom = -8.0
-text = "Level 2"
+text = "Level 3"
 
 [node name="Gems" type="Node" parent="."]
 
